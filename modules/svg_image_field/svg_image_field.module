@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains svg_image_field.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function svg_image_field_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the svg_formatter module.
+    case 'help.page.svg_image_field':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Add SVG field, widget, formatter.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function svg_image_field_theme() {
+  return [
+    'svg_image_field_formatter' => [
+      'variables' => [
+        'inline' => FALSE,
+        'attributes' => NULL,
+        'uri' => NULL,
+        'svg_data' => NULL,
+      ],
+    ],
+  ];
+}
