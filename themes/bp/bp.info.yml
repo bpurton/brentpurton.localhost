@@ -1,0 +1,17 @@
+name: BP Portfolio theme
+type: theme
+base theme: classy
+description: A clean simple theme for a portfolio website
+core: 8.x
+
+libraries:
+  # - core/normalize
+  - bp/global-styling
+
+regions:
+  header: Header
+  content_prefix: Content Prefix
+  content: Content
+  content_suffix: Content Suffix
+  footer: Footer
+  off_canvas: Off Canvas

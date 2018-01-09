@@ -1,0 +1,391 @@
+@import "breakpoint";
+@import "singularitygs";
+@import "modular-scale";
+
+@include add-grid(12);
+@include add-gutter(1/3);
+@include add-gutter-style('split');
+
+// import icon font
+@import "../../fonts/icomoon/style.css";
+
+// Font weights
+$light:   300;
+$regular: 400;
+$bold:    700;
+
+// Colors
+$c-dark-grey:       #272727;
+$c-light-grey:      #f1f1f1;
+$c-med-grey:        #737373;
+$c-red:             rgba(200,50,50, 1);
+$c-red-opaque:      rgba(200,50,50, 0.8);
+$c-red-transparent: rgba(200,50,50, 0);
+
+
+// Breakpoints
+$tablet: 768px;
+$desktop: 992px;
+
+$xs-break: 20em; //(320px)
+$s-break:  32em; //(525px)
+$m-break:  50em; //(800px)
+$l-break:  64em; //(1024px)
+$xl-break: 90em; //(1440px)
+
+@import "_mixins.scss";
+
+// Elements
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', Arial, sans-serif;
+  text-align: center;
+  position: relative;
+}
+
+p {
+  color: $c-med-grey;
+  font-size: ms();
+  font-weight: $light;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: ms(1);
+  text-transform: uppercase;
+  font-weight: $light;
+
+  @include breakpoint($tablet) {
+    font-size: ms(2);
+  }
+}
+
+
+h3 {
+  font-size: ms(.5);
+  font-weight: $bold;
+}
+
+a {
+  font-weight: $light;
+  color: $c-red;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  @include blockquote;
+}
+
+
+input[type=text],
+input[type=email],
+textarea {
+  @include transition;
+  padding: ms() ms(-1);
+  border: solid 1px $c-light-grey;
+  border-bottom: solid 1px $c-light-grey;
+  width: 100%;
+  border-radius: 3px;
+
+  &:focus {
+    outline: 0;
+    border: solid 1px $c-red;
+    border-bottom: solid 5px $c-red;
+  }
+}
+
+.form-required {
+  &::after {
+    display: none;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: ms(-1);
+}
+
+.attribution {
+  display: block;
+  text-align: left;
+  font-size: 1.2em;
+  margin: 0 0 0 ms(2);
+  font-weight: $light;
+  font-style: italic;
+}
+
+p.highlight-white {
+  color: white;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: $light;
+}
+
+// Site header
+header {
+  background-color: $c-dark-grey;
+  border-top: solid 3px $c-red;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 500;
+
+
+  * {
+    color: white;
+  }
+}
+
+img {
+  display: inline-block;
+  // width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+// View grid
+.view {
+  @include clearfix;
+
+  .view-content {
+    @include layout-container;
+  }
+
+  .views-row {
+    text-align: left;
+    margin-bottom: ms();
+  }
+}
+
+.view-1-col .views-row {
+  @include float-span(12);
+  margin: ms(3) 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.view-3-col .views-row {
+  margin: ms(2) 0;
+
+  @include breakpoint($m-break) {
+    @include float-span(4);
+
+    &:nth-child(3n+3) {
+      @include float-span(4, 'last')
+    }
+  }
+}
+
+
+
+
+// main content container
+main.main-content {
+  margin-top: ms(2);
+}
+
+
+//all section articles
+// section article,
+// footer .footer {
+//   @include clearfix;
+//   padding: 0 ms(1);
+
+//   @include breakpoint($desktop) {
+//     margin-right: auto;
+//     margin-left: auto;
+//     max-width: 75em;
+//    }
+// }
+
+// skills block
+.skills {
+  background-color: $c-light-grey;
+  padding-top: ms(3);
+  padding-bottom: ms(3);
+  @include layout-padding;
+}
+
+.projects {
+  @include layout-padding;
+}
+
+.work {
+  padding-top: ms(3);
+  padding-bottom: ms(3);
+
+  .grid-item a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .grid-item b {
+    margin-top: ms(-1);
+    display: block;
+  }
+
+  .grid-item p {
+    margin-top: 0;
+  }
+
+  img {
+    display: block;
+    transform: scale(1);
+    transition: transform 2s ease;
+  }
+
+  .overlay {
+    background-color: $c-red-opaque;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 10;
+    transition: opacity .6s ease;
+
+    .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -1rem;
+      margin-left: -3.375rem;
+    }
+  }
+
+  .grid-item a:hover {
+
+    img {
+      transform: scale(1.2);
+    }
+
+    .overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.testimonial {
+  padding: ms(3) 0;
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/gplaypattern.png");
+}
+
+footer {
+  background-color: $c-dark-grey;
+  border-bottom: solid 3px $c-red;
+  padding: ms(3) 0 0 0;
+
+  .block {
+    text-align: left;
+
+    @include breakpoint($tablet) {
+      @include float-span(4,1);
+
+      &:nth-child(2n+2) {
+        @include float-span(4,9);
+      }
+    }
+  }
+
+  .region {
+    @include layout-container;
+    @include clearfix();
+    @include layout-padding;
+  }
+}
+
+
+.about {
+  text-align: left;
+
+  @include breakpoint($tablet) {
+    @include float-span(4,1);
+  }
+
+  h4 {
+  }
+}
+
+.contact {
+  text-align: left;
+
+  a {
+    text-decoration: none;
+  }
+
+  .icon {
+    font-size: 2em;
+  }
+
+  @include breakpoint($tablet) {
+    @include float-span(4,9);
+    text-align: right;
+  }
+}
+
+.copyright {
+  font-size: .6em;
+  display: block;
+  color: $c-light-grey;
+  font-weight: $light;
+  margin-top: ms(4);
+}
+
+.field--name-field-user {
+
+  .field--name-field-image {
+    border-radius: 100%;
+    overflow: hidden;
+    display: inline-block;
+  }
+}
+
+
+.contact-form {
+
+  h2 {
+    @include font-size(20);
+    text-transform: none;
+    color: white;
+  }
+
+  label {
+    color: white;
+    font-weight: $light;
+  }
+
+  .button:hover {
+    background-color: $c-red;
+    color: white;
+    border-color: $c-red;
+  }
+}
+
+
+@import "_main-menu.scss";
+@import "_intro.scss";
+@import "_timeline.scss";
+@import "_node-skills.scss";
+@import "_branding.scss";

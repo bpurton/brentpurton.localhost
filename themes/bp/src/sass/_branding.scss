@@ -1,0 +1,17 @@
+.block-system-branding-block {
+  @include breakpoint($m-break) {
+    @include float-span(2, 1);
+  }
+
+
+  img {
+    max-width: 1.5em;
+    margin: ms(-2) 0;
+  }
+}
+
+
+.site-name {
+  @include visually-hidden;
+}
+

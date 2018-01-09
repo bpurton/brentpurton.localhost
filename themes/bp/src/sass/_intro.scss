@@ -1,0 +1,84 @@
+// intro section
+.view-hero-banner {
+  .views-row {
+    margin-bottom: 0;
+  }
+}
+
+.node--type-hero-banner {
+  @include overlay;
+  position: relative;
+  // width: 100%;
+  // height: 100vh;
+  // position: relative;
+  // display: table;
+  // background-image: url('https://cdn.pixabay.com/photo/2014/05/03/01/03/macbook-336704_960_720.jpg');
+  // background-size: cover;
+  // background-position: center center;
+
+  .layout__region--top {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .layout__region--bottom {
+    // @include layout-container;
+    @include layout-padding;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    // left: 50%;
+    text-align: center;
+    display: block;
+    z-index: 20;
+
+    * {
+      color: white;
+    }
+
+    .field {
+      @include layout-container;
+    }
+  }
+
+  .field--name-field-image {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      min-width: 50%;
+      min-height: 50%;
+      overflow-x: hidden;
+    }
+  }
+
+
+  h2 {
+    @include font-size(26);
+    font-weight: $light;
+    color: white;
+    float: none;
+    text-transform: none;
+    margin-bottom: ms(-3);
+
+    @include breakpoint($tablet) {
+      @include font-size(38);
+    }
+  }
+}
+
+
+.view-hero-banner .view-content {
+  max-width: 100%;
+}

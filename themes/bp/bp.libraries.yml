@@ -1,0 +1,15 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/style.css: {}
+  js:
+    src/js/script.js: {}
+    # dist/js/ScrollMagic.min.js: {}
+    bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js: {}
+    bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js: {}
+    bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js: {}
+    bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js: {}
+    bower_components/jquery_lazyload/jquery.lazyload.js: {}
+  dependencies:
+    - core/jquery

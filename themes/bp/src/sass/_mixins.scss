@@ -1,0 +1,110 @@
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 16) + rem;
+}
+
+@mixin overlay {
+  &:before {
+    content: "";
+    background-color: $c-red-opaque;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.overlay {
+  @include overlay;
+}
+
+@mixin transition {
+  transition: all .3s ease;
+}
+
+@mixin button {
+  background-color: $c-red-transparent;
+  color: white;
+  border-color: white;
+  padding: ms();
+  border: solid 1px;
+  text-align: center;
+  font-size: .6875em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color .3s ease, background-color .3s ease;
+  font-weight: $regular;
+
+  &:hover {
+    background-color: white;
+    color: $c-red;
+  }
+}
+
+.button {
+  @include button;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+@mixin layout-container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 75em;
+}
+
+@mixin layout-padding {
+  padding-left: ms();
+  padding-right: ms();
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+@mixin blockquote {
+  @include font-size(20);
+  line-height: 1.6;
+  font-weight: $light;
+  text-align: left;
+  margin: ms(-1);
+
+
+  @include breakpoint($tablet) {
+    @include font-size(30);
+  }
+
+  &:before {
+    content: "“";
+  }
+
+  &:after {
+    content: "”";
+  }
+}
+
+

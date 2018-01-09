@@ -1,0 +1,57 @@
+// Main menu small screens
+.main-menu {
+
+  .menu-toggle {
+    display: inline-block;
+    padding: ms();
+
+    @include breakpoint($desktop) {
+      display: none;
+    }
+  }
+
+  ul {
+    margin-top: ms();
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $c-red;
+  }
+
+  li a {
+    padding: ms(2) ms();
+    display: block;
+    text-decoration: none;
+    font-weight: $light;
+
+    &:hover {
+      background-color: $c-red;
+    }
+  }
+}
+
+// Main menu larger screens
+@include breakpoint($desktop) {
+  .main-menu {
+    display: block;
+
+
+    ul {
+      margin-top: 0;
+      display: block;
+      position: static;
+      background-color: transparent;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    li a {
+      padding: ms();
+    }
+  }
+}
