@@ -124,16 +124,20 @@ blockquote:after {
 
 input[type=text],
 input[type=email],
+input[type=password],
 textarea {
   transition: all .3s ease;
-  padding: 1em 0.61803em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 1em;
   border: solid 1px #f1f1f1;
-  border-bottom: solid 1px #f1f1f1;
+  border-bottom: solid 5px #f1f1f1;
   width: 100%;
   border-radius: 3px;
 }
 input[type=text]:focus,
 input[type=email]:focus,
+input[type=password]:focus,
 textarea:focus {
   outline: 0;
   border: solid 1px #c83232;
@@ -147,6 +151,34 @@ textarea:focus {
 label {
   display: block;
   margin-bottom: 0.61803em;
+}
+
+.user-login-form {
+  margin: 2.61803em auto;
+  padding: 1em 2.61803em;
+  text-align: left;
+  max-width: 32em;
+  background-color: #f1f1f1;
+}
+.user-login-form input[type=submit] {
+  background-color: rgba(200, 50, 50, 0);
+  color: white;
+  border-color: white;
+  padding: 1em;
+  border: solid 1px;
+  text-align: center;
+  font-size: .6875em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color .3s ease, background-color .3s ease;
+  font-weight: 400;
+  background-color: #c83232;
+  color: white;
+}
+.user-login-form input[type=submit]:hover {
+  background-color: white;
+  color: #c83232;
 }
 
 .attribution {
@@ -304,19 +336,22 @@ footer {
   border-bottom: solid 3px #c83232;
   padding: 4.23607em 0 0 0;
 }
+footer a {
+  color: white;
+}
 footer .block {
   text-align: left;
 }
 @media (min-width: 768px) {
   footer .block {
-    width: 31.25%;
+    width: 39.58333%;
     clear: right;
     float: left;
     margin-left: 1.04167%;
     margin-right: 1.04167%;
   }
   footer .block:nth-child(2n+2) {
-    width: 31.25%;
+    width: 39.58333%;
     clear: right;
     float: right;
     margin-left: 0;
@@ -381,6 +416,7 @@ footer .region:after {
   border-radius: 100%;
   overflow: hidden;
   display: inline-block;
+  border: solid 2px #c83232;
 }
 
 .contact-form h2 {

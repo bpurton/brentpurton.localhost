@@ -22,6 +22,7 @@ $c-med-grey:        #737373;
 $c-red:             rgba(200,50,50, 1);
 $c-red-opaque:      rgba(200,50,50, 0.8);
 $c-red-transparent: rgba(200,50,50, 0);
+$white: #fff;
 
 
 // Breakpoints
@@ -97,13 +98,16 @@ blockquote {
 
 input[type=text],
 input[type=email],
+input[type=password],
 textarea {
   @include transition;
-  padding: ms() ms(-1);
+  @include font-size(12);
+  padding: ms();
   border: solid 1px $c-light-grey;
-  border-bottom: solid 1px $c-light-grey;
+  border-bottom: solid 5px $c-light-grey;
   width: 100%;
   border-radius: 3px;
+
 
   &:focus {
     outline: 0;
@@ -121,6 +125,20 @@ textarea {
 label {
   display: block;
   margin-bottom: ms(-1);
+}
+
+.user-login-form {
+  margin: ms(2) auto;
+  padding: ms() ms(2);
+  text-align: left;
+  max-width: 32em;
+  background-color: $c-light-grey;
+
+  input[type=submit] {
+    @include button;
+    background-color: $c-red;
+    color: white;
+  }
 }
 
 .attribution {
@@ -299,14 +317,18 @@ footer {
   border-bottom: solid 3px $c-red;
   padding: ms(3) 0 0 0;
 
+  a {
+    color: white;
+  }
+
   .block {
     text-align: left;
 
     @include breakpoint($tablet) {
-      @include float-span(4,1);
+      @include float-span(5, 1);
 
       &:nth-child(2n+2) {
-        @include float-span(4,9);
+        @include float-span(5, 8);
       }
     }
   }
@@ -361,6 +383,7 @@ footer {
     border-radius: 100%;
     overflow: hidden;
     display: inline-block;
+    border: solid 2px $c-red;
   }
 }
 
